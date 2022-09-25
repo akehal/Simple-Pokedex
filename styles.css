@@ -16,8 +16,12 @@ body {
 figure{
     display: inline-block;
     border: 1px black;
-    margin: 50px;
+    margin: 30px;
+
+    border-radius: 25px;
     background-color: beige;
+    padding: 20px;
+
 }
 
 figure img{

@@ -17,7 +17,7 @@
 </form>
 
 <form>
-<input type="text" placeholder="Search by name" id="pokeName">
+<input type="text" placeholder="Search by name" id="pokeName" onkeydown="return /[a-z]/i.test(event.key)" maxlength="20">
 <button type="submit" id="btnName" onclick="showAlertName()" onsubmit="showAlertName()"></button>
 </form>
 
@@ -140,6 +140,13 @@
         <figcaption id ="number">#020</figcaption>
     </figure>
 </ul>
+
+<h1>Reference List</h1>
+<ul>
+   <li>Pokemon data set from  <a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset">here</a></li>
+   <li>Pokemon excel from <a href="https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/">here</a></li>
+<ul>
+
 
 
 

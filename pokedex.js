@@ -21,19 +21,32 @@ var pokemonArray = [
     {name: "Raticate", number: "020", rarity: "4", typeCombo: "Normal", fastMoves: "Bite / Quick Attack"},
 ];
 
-function showAlertNum(){ 
+var pokemonArrayDisplay = [];
+var counter = 0;
+
+function showAlertNum(){ //gets called when user types in a pokemon number
     alert(num.value);
 }
 
-function showAlertName(){
-    for(let i in pokemonArray){
-        if(pokemonArray[i].name == pokeName.value){
-            alert("Number: " + pokemonArray[i].number + "   Name: " + pokemonArray[i].name + "   Rarity: " + pokemonArray[i].rarity + "   Type Combo: " + pokemonArray[i].typeCombo + "   Fast Moves: " + pokemonArray[i].fastMoves);
-
+function showAlertName(){ //gets called when user types in a pokemon name
+    for(let i in pokemonArray){ //iterates through array and pushes object if object includes the user's input
+        if(pokemonArray[i].name.toLowerCase().includes(pokeName.value.toLowerCase())){
+            pokemonArrayDisplay.push(pokemonArray[i]);
         }
     }
+    var finalOuput = "" 
+    for(let i in pokemonArrayDisplay){ //iterates through the new array that contains the matches and addes them into one string
+        finalOuput += "Name: " + pokemonArrayDisplay[i].name + " | Number: " + pokemonArrayDisplay[i].number + " | Rarity: " + pokemonArrayDisplay[i].rarity + " | Type Combo: " + pokemonArrayDisplay[i].typeCombo + " | Fast Moves: " + pokemonArrayDisplay[i].fastMoves + "\n";
+        counter++;
+        if(counter==5){ //for maxiumum of 5 outputs
+            break;
+        }
+    
+    }
+    alert(finalOuput); //outputs an alert box with the first 5 objects that matched
 }
 
+//pokemonArray[i].name.toLowerCase() == pokeName.value.toLowerCase() || 
 
 
 

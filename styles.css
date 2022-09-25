@@ -1,15 +1,9 @@
-.col {
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    margin-bottom: 20px;
-}
 body {
     background-color: lightblue;
   }
   
   h1 {
-    color: gray;
+    color: black;
     text-align: center;
   }
 
@@ -30,8 +24,13 @@ figure img{
 
 
   figure figcaption{
-    color: gray;
+    color: black;
     text-align: center;
+  }
+
+  figure figcaption[id="number"]{
+    text-align: justify ;
+    color: gray
   }
   
   form{

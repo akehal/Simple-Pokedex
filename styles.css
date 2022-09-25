@@ -1,0 +1,31 @@
+.col {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+body {
+    background-color: lightblue;
+  }
+  
+  h1 {
+    color: gray;
+    text-align: center;
+  }
+
+figure{
+    display: inline-block;
+    border: 1px black;
+    margin: 50px;
+    background-color: beige;
+}
+
+figure img{
+    vertical-align: top;
+}
+
+
+  figure figcaption{
+    color: gray;
+    text-align: center;
+  }

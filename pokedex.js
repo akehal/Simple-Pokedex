@@ -23,10 +23,31 @@ var pokemonArray = [
 
 var pokemonArrayDisplay = [];
 var counter = 0;
+var finalOuput = "" 
 
 function showAlertNum(){ //gets called when user types in a pokemon number
-    alert(num.value);
-}
+    if(pokeNum.value>0 && pokeNum.value <= 20){
+        for(let i in pokemonArray){ //iterates through array and pushes object if object includes the user's input
+            if(pokemonArray[i].number.includes(pokeNum.value)){
+                pokemonArrayDisplay.push(pokemonArray[i]);
+            }
+        }
+        for(let i in pokemonArrayDisplay){ //iterates through the new array that contains the matches and addes them into one string
+            finalOuput += "Name: " + pokemonArrayDisplay[i].name + " | Number: " + pokemonArrayDisplay[i].number + " | Rarity: " + pokemonArrayDisplay[i].rarity + " | Type Combo: " + pokemonArrayDisplay[i].typeCombo + " | Fast Moves: " + pokemonArrayDisplay[i].fastMoves + "\n";
+            counter++;
+            if(counter==5){ //for maxiumum of 5 outputs
+                break;
+            }
+        
+        }
+        alert(finalOuput); //outputs an alert box with the first 5 objects that matched
+    }
+    else{
+        alert("The number you have input is not between 0 and 20, please try again!")
+    }
+    }
+    
+
 
 function showAlertName(){ //gets called when user types in a pokemon name
     for(let i in pokemonArray){ //iterates through array and pushes object if object includes the user's input
@@ -34,7 +55,6 @@ function showAlertName(){ //gets called when user types in a pokemon name
             pokemonArrayDisplay.push(pokemonArray[i]);
         }
     }
-    var finalOuput = "" 
     for(let i in pokemonArrayDisplay){ //iterates through the new array that contains the matches and addes them into one string
         finalOuput += "Name: " + pokemonArrayDisplay[i].name + " | Number: " + pokemonArrayDisplay[i].number + " | Rarity: " + pokemonArrayDisplay[i].rarity + " | Type Combo: " + pokemonArrayDisplay[i].typeCombo + " | Fast Moves: " + pokemonArrayDisplay[i].fastMoves + "\n";
         counter++;
@@ -43,7 +63,12 @@ function showAlertName(){ //gets called when user types in a pokemon name
         }
     
     }
-    alert(finalOuput); //outputs an alert box with the first 5 objects that matched
+    if(finalOuput.length == 0){ //if user enters a string with no matches, will display this
+        alert("The input you have given has no matches.");
+    }
+    else{
+        alert(finalOuput); //outputs an alert box with the first 5 objects that matched
+    }
 }
 
 //pokemonArray[i].name.toLowerCase() == pokeName.value.toLowerCase() || 

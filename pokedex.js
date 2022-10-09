@@ -71,6 +71,8 @@ function showAlertName(){ //gets called when user types in a pokemon name
     }
 }
 
+let divElement = document.createElement('div');
+
 //pokemonArray[i].name.toLowerCase() == pokeName.value.toLowerCase() || 
 
 

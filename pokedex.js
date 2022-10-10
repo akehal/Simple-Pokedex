@@ -1,7 +1,14 @@
 const searchName = document.getElementById('pokeName');
+const searchNum = document.getElementById('pokeNum');
 var filteredPokemon = [];
+var list = document.createElement('ul');
 
     searchName.addEventListener('keyup', (e) =>{
+        searchName.addEventListener('keydown', (e)=>{
+            if(filteredPokemon){
+                removeUL(filteredPokemon);
+            }
+        })
         const searchNameString = e.target.value;
         searchNameString.toLowerCase();
         filteredPokemon = pokemonArray.filter(pokemon =>{
@@ -12,11 +19,20 @@ var filteredPokemon = [];
         makeUL(filteredPokemon);
     })
 
+    searchNum.addEventListener('keyup', (e) =>{
+        const searchNumString = e.target.value;
+        filteredPokemon = pokemonArray.filter(pokemon =>{
+            return pokemon.number.includes(searchNumString);
+        });
+        let liElement = document.createElement('li');
+        console.log(filteredPokemon);
+        makeUL(filteredPokemon);
+    })
+
     function makeUL(array){
         var divElement = document.createElement('div');
         var containerDiv = document.querySelector('.container');
         containerDiv.appendChild(divElement);
-        var list = document.createElement('ul');
         for(var i = 0; i<array.length; i++){
             var item = document.createElement("li");
             item.appendChild(document.createTextNode("Name:" + array[i].name 
@@ -31,6 +47,11 @@ var filteredPokemon = [];
         console.log(list);
         return list;
     }
+
+    function removeUL(array){
+        while(list.firstChild) {list.removeChild(list.firstChild)}
+    }
+
 
 var pokemonArray = [
     {name: "Bulbasaur", number: "001", rarity: "4", typeCombo: "Grass / Poison", fastMoves: "Tackle / Vine Whip"},

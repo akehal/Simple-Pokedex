@@ -1,38 +1,14 @@
-const searchNum = document.getElementById('pokeNum');
 const searchName = document.getElementById('pokeName');
-var a, i, txtvalue;
-searchName.value.toLowerCase();
-searchNum.value.toLowerCase();
-ul = document.getElementById("pokeUL");
-li = document.getElementsByTagName('li');
+const filteredPokemon = [];
 
-for(i = 0l i < li.length; i++){
-    a = li[i].getElementsByTagName("a")[0];
-    txtvalue
-}
-
-search.addEventListener("input", (e) =>{
-    let value = e.target.value;
-    if(value && value.trim().length >0){
-        value = value.trim().toLowerCase();
-        setList(pokemonArray.filter(pokemon=>{
-            return pokemon.name.includes(value)
-        }))
-    }else{
-
-    }
-})
-
-function setList(results){
-    for(const pokemon of results){
-        const listItem = document.createElement('li')
-        listItem.classList.add('list-item');
-        const text = document.createTextNode(pokemon.name);
-        listItem.appendChild(text);
-        list.appendChild(listItem);
-    }
-}
-
+    searchName.addEventListener('keyup', (e) =>{
+        const searchNameString = e.target.value;
+        searchNameString.toLowerCase();
+        const filteredPokemon = pokemonArray.filter(pokemon =>{
+            return pokemon.name.toLowerCase().includes(searchNameString);
+        });
+        console.log(filteredPokemon);
+    })
 
 var pokemonArray = [
     {name: "Bulbasaur", number: "001", rarity: "4", typeCombo: "Grass / Poison", fastMoves: "Tackle / Vine Whip"},

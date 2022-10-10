@@ -6,139 +6,145 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="styles.css">
-<script src="pokedex.js"></script>
+<script src="pokedex.js" defer></script>
 </head>
 <body>
 <h1>Arshdeep's Pokedex</h1>
 
+<div class='container'>
+    <ul class="result-list" id="list">
+
+    </ul>
+</div>
+
 <form>
-    <input type="text" id="pokeNum" placeholder="Search by number">
+    <input type="text" id="pokeNum" placeholder="Search by number" class="input" onkeyup="numFunction()">
     <button type="submit" id="btnNum" onclick="showAlertNum()" onsubmit="showAlertNum()"></button>
 </form>
 
 <form>
-<input type="text" placeholder="Search by name" id="pokeName" onkeydown="return /[a-z]/i.test(event.key)" maxlength="20">
+<input type="text" placeholder="Search by name" id="pokeName" onkeydown="return /[a-z]/i.test(event.key)" maxlength="20" class="input" onkeyup="nameFunction()">
 <button type="submit" id="btnName" onclick="showAlertName()" onsubmit="showAlertName()"></button>
 </form>
 
-<ul>
-    <figure>
+<ul id="pokeUL">
+    <li id="1" class="bulbasaur">
         <img src="images/1.png" alt="Bulbasaur">
         <figcaption>Bulbasaur</figcaption> 
         <figcaption id ="number">#001</figcaption>
-    </figure> 
-    <figure>
+    </li> 
+    <li id="2" class="ivysaur">
         <img src="images/2.png" alt="Ivysaur">
         <figcaption>Ivysaur</figcaption> 
         <figcaption id ="number">#002</figcaption>
-    </figure>
-    <figure>
+    </li>
+    <li id="3" class="venusaur">
         <img src="images/3.png" alt="Venusaur">
         <figcaption>Venusaur</figcaption>
         <figcaption id ="number">#003</figcaption>
-    </figure>
+    </li>
     
-    <figure>
-        <img src="images/4.png" alt="Charmader">
+    <li id="4" class="charmander">
+        <img src="images/4.png" alt="Charmander">
         <figcaption>Charmander</figcaption>
         <figcaption id ="number">#004</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="5" class="charmeleon">
         <img src="images/5.png" alt="Charmeleon">
         <figcaption>Charmeleon</figcaption>
         <figcaption id ="number">#005</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="6" class="charizard">
         <img src="images/6.png" alt="Charizard">
         <figcaption>Charizard</figcaption>
         <figcaption id ="number">#006</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="7" class="squirtle">
         <img src="images/7.png" alt="Squirtle">
         <figcaption>Squirtle</figcaption>
         <figcaption id ="number">#007</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="8" class="wartortle">
         <img src="images/8.png" alt="Wartortle">
         <figcaption>Wartortle</figcaption>
         <figcaption id ="number">#008</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="9" class="blastoise">
         <img src="images/9.png" alt="Blastoise">
         <figcaption>Blastoise</figcaption>
         <figcaption id ="number">#009</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="10" class="caterpie">
         <img src="images/10.png" alt="Caterpie">
         <figcaption>Caterpie</figcaption>
         <figcaption id ="number">#010</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="11" class="metapod">
         <img src="images/11.png" alt="Metapod">
         <figcaption>Metapod</figcaption>
         <figcaption id ="number">#011</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="12" class="butterfree">
         <img src="images/12.png" alt="Butterfree">
         <figcaption>Butterfree</figcaption>
         <figcaption id ="number">#012</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="13" class="weedle">
         <img src="images/13.png" alt="Weedle">
         <figcaption>Weedle</figcaption>
         <figcaption id ="number">#013</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="14" class="kakuna">
         <img src="images/14.png" alt="Kakuna">
         <figcaption>Kakuna</figcaption>
         <figcaption id ="number">#014</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="15" class="beedrill">
         <img src="images/15.png" alt="Beedrill">
         <figcaption>Beedrill</figcaption>
         <figcaption id ="number">#015</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="16" class="pidgey">
         <img src="images/16.png" alt="Pidgey">
         <figcaption>Pidgey</figcaption>
         <figcaption id ="number">#016</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="17" class="pidgeotto">
         <img src="images/17.png" alt="Pidgeotto">
         <figcaption>Pidgeotto</figcaption>
         <figcaption id ="number">#017</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="18" class="pidgeot">
         <img src="images/18.png" alt="Pidgeot">
         <figcaption>Pidgeot</figcaption>
         <figcaption id ="number">#018</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="19" class="rattata">
         <img src="images/19.png" alt="Rattata">
         <figcaption>Rattata</figcaption>
         <figcaption id ="number">#019</figcaption>
-    </figure>
+    </li>
     
-    <figure>
+    <li id="20" class="raticate">
         <img src="images/20.png" alt="Raticate">
         <figcaption>Raticate</figcaption>
         <figcaption id ="number">#020</figcaption>
-    </figure>
+    </li>
 </ul>
 
 <h1>Reference List</h1>

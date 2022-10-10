@@ -18,20 +18,20 @@ figure{
 
 }
 
-figure img{
+li img{
     vertical-align: top;
 }
 
 
-  figure figcaption{
-    color: black;
-    text-align: center;
-  }
+li caption{
+  color: black;
+  text-align: center;
+}
 
-  figure figcaption[id="number"]{
-    text-align: justify ;
-    color: gray
-  }
+li caption[id="number"]{
+  text-align: justify ;
+  color: gray
+}
   
   form{
     color: rgb(24, 24, 24);
@@ -71,4 +71,13 @@ figure img{
     opacity: 1;
   }
 
+  li{
+    display: inline-block;
+    border: 1px black;
+    margin: 30px;
+
+    border-radius: 25px;
+    background-color: beige;
+    padding: 20px;
+}
 

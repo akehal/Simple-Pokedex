@@ -7,28 +7,17 @@ body {
     text-align: center;
   }
 
-figure{
-    display: inline-block;
-    border: 1px black;
-    margin: 30px;
-
-    border-radius: 25px;
-    background-color: beige;
-    padding: 20px;
-
-}
-
 li img{
     vertical-align: top;
 }
 
 
-li caption{
+p{
   color: black;
   text-align: center;
 }
 
-li caption[id="number"]{
+li [class="number"]{
   text-align: justify ;
   color: gray
 }

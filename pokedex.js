@@ -1,34 +1,42 @@
-const searchName = document.getElementById('pokeName');
-const searchNum = document.getElementById('pokeNum');
-var filteredPokemon = [];
-var list = document.createElement('ul');
+const searchName = document.getElementById('pokeName'); // gets pokeName search bar
+const searchNum = document.getElementById('pokeNum'); //gets pokeNum search bar
+var filteredPokemon = []; // list of pokemon displayed in dom
+var list = document.createElement('ul'); // ul of dom
 
-    searchName.addEventListener('keyup', (e) =>{
-        searchName.addEventListener('keydown', (e)=>{
+    //checks to see when key is up 
+    searchName.addEventListener('keyup', (e) =>{ 
+        searchName.addEventListener('keydown', (e)=>{ // when key is down, if previous list was there it clears it everytime a button is pressed
+            if(filteredPokemon){
+                removeUL(filteredPokemon); // function to clear list
+            }
+        })
+        const searchNameString = e.target.value; // input in the search bar
+        searchNameString.toLowerCase(); 
+        filteredPokemon = pokemonArray.filter(pokemon =>{ // returns all the names that include input
+            return pokemon.name.toLowerCase().includes(searchNameString);
+        });
+        if(searchNameString.length != 0){ // makes sure when the input is empty, doesnt display whole list of pokemon
+            makeUL(filteredPokemon);
+        }
+    })
+
+    // same functionality as searchName, but for the numbers search bar
+    searchNum.addEventListener('keyup', (e) =>{
+        searchNum.addEventListener('keydown', (e)=>{
             if(filteredPokemon){
                 removeUL(filteredPokemon);
             }
         })
-        const searchNameString = e.target.value;
-        searchNameString.toLowerCase();
-        filteredPokemon = pokemonArray.filter(pokemon =>{
-            return pokemon.name.toLowerCase().includes(searchNameString);
-        });
-        let liElement = document.createElement('li');
-        console.log(filteredPokemon);
-        makeUL(filteredPokemon);
-    })
-
-    searchNum.addEventListener('keyup', (e) =>{
         const searchNumString = e.target.value;
         filteredPokemon = pokemonArray.filter(pokemon =>{
             return pokemon.number.includes(searchNumString);
         });
-        let liElement = document.createElement('li');
-        console.log(filteredPokemon);
-        makeUL(filteredPokemon);
+        if(searchNumString.length != 0){
+            makeUL(filteredPokemon);
+        }
     })
 
+    // makes and populates the UL in the dom with the filteredpokemon array
     function makeUL(array){
         var divElement = document.createElement('div');
         var containerDiv = document.querySelector('.container');
@@ -48,6 +56,7 @@ var list = document.createElement('ul');
         return list;
     }
 
+    // removes the entire UL from DOM 
     function removeUL(array){
         while(list.firstChild) {list.removeChild(list.firstChild)}
     }

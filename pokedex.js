@@ -10,7 +10,6 @@ var filteredPokemon = [];
         let liElement = document.createElement('li');
         console.log(filteredPokemon);
         makeUL(filteredPokemon);
-        filteredPokemon.remove();
     })
 
     function makeUL(array){
@@ -20,7 +19,12 @@ var filteredPokemon = [];
         var list = document.createElement('ul');
         for(var i = 0; i<array.length; i++){
             var item = document.createElement("li");
-            item.appendChild(document.createTextNode(array[i].name));
+            item.appendChild(document.createTextNode("Name:" + array[i].name 
+            + ", Number: " + array[i].number 
+            + ", Rarity: " + array[i].rarity 
+            + ", Type Combo: " + array[i].typeCombo 
+            + ", Fast Moves: " + array[i].fastMoves));
+
             list.appendChild(item);
         }
         divElement.appendChild(list);

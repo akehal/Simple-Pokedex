@@ -1,14 +1,32 @@
 const searchName = document.getElementById('pokeName');
-const filteredPokemon = [];
+var filteredPokemon = [];
 
     searchName.addEventListener('keyup', (e) =>{
         const searchNameString = e.target.value;
         searchNameString.toLowerCase();
-        const filteredPokemon = pokemonArray.filter(pokemon =>{
+        filteredPokemon = pokemonArray.filter(pokemon =>{
             return pokemon.name.toLowerCase().includes(searchNameString);
         });
+        let liElement = document.createElement('li');
         console.log(filteredPokemon);
+        makeUL(filteredPokemon);
+        filteredPokemon.remove();
     })
+
+    function makeUL(array){
+        var divElement = document.createElement('div');
+        var containerDiv = document.querySelector('.container');
+        containerDiv.appendChild(divElement);
+        var list = document.createElement('ul');
+        for(var i = 0; i<array.length; i++){
+            var item = document.createElement("li");
+            item.appendChild(document.createTextNode(array[i].name));
+            list.appendChild(item);
+        }
+        divElement.appendChild(list);
+        console.log(list);
+        return list;
+    }
 
 var pokemonArray = [
     {name: "Bulbasaur", number: "001", rarity: "4", typeCombo: "Grass / Poison", fastMoves: "Tackle / Vine Whip"},
@@ -86,12 +104,6 @@ function showAlertName(){ //gets called when user types in a pokemon name
 }
 
 
-let divElement = document.createElement('div');
-//console.dir(divElement);
-let textNode = document.createTextNode("HELLO THIS IS CONTENT");
-divElement.appendChild(textNode);
-let divContainer = document.querySelector('.container');
-divContainer.appendChild(divElement);
 
 
 //pokemonArray[i].name.toLowerCase() == pokeName.value.toLowerCase() || 

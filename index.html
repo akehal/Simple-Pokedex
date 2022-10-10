@@ -18,12 +18,12 @@
 </div>
 
 <form>
-    <input type="text" id="pokeNum" placeholder="Search by number" class="input" onkeyup="numFunction()">
+    <input type="text" id="pokeNum" placeholder="Search by number" class="input">
     <button type="submit" id="btnNum" onclick="showAlertNum()" onsubmit="showAlertNum()"></button>
 </form>
 
 <form>
-<input type="text" placeholder="Search by name" id="pokeName" onkeydown="return /[a-z]/i.test(event.key)" maxlength="20" class="input" onkeyup="nameFunction()">
+<input type="text" placeholder="Search by name" id="pokeName" onkeydown="return /[a-z]/i.test(event.key)" maxlength="20" class="input">
 <button type="submit" id="btnName" onclick="showAlertName()" onsubmit="showAlertName()"></button>
 </form>
 
